@@ -17,36 +17,36 @@ import java.util.List;
 public class FoodIngredientController {
 
     @Autowired
-    FoodIngredientService foodIngredientService;
+    FoodIngredientService foodingredientService;
 
 
 
     @RequestMapping(value = "getfoodingredient",method = RequestMethod.GET)
     public List<FoodIngredient> list(){
-        return foodIngredientService.getFoodIngredients();
+        return foodingredientService.getFoodIngredients();
     }
 
     @RequestMapping(value = "foodingredient/{foodIngredientID}",method = RequestMethod.GET)
     public  FoodIngredient getFoodIngredient(@PathVariable("foodIngredientID") Long foodIngredientID){
-        return foodIngredientService.getFoodIngredient(foodIngredientID);
+        return foodingredientService.getFoodIngredient(foodIngredientID);
     }
 
 
     @RequestMapping(value = "foodingredient",method = RequestMethod.POST)
     public @ResponseBody
     FoodIngredient addFoodIngredient(@RequestBody FoodIngredient foodIngredient, BindingResult bindingResult){
-        return foodIngredientService.addFoodIngredient(foodIngredient);
+        return foodingredientService.addFoodIngredient(foodIngredient);
     }
 
     @RequestMapping(value = "foodingredient/{foodIngredientID}",method = RequestMethod.PUT)
     public  FoodIngredient updateFoodIngredient(@PathVariable("foodIngredientID") Long foodIngredientID,@RequestBody FoodIngredient foodIngredient, BindingResult bindingResult) {
-        return foodIngredientService.updateFoodIngredient(foodIngredient);
+        return foodingredientService.updateFoodIngredient(foodIngredient);
 
     }
 
         @RequestMapping(value = "foodingredient/{foodIngredientID}", method = RequestMethod.DELETE)
         public FoodIngredient deleteFood (@PathVariable("foodIngredientID") Long foodIngredientID){
-            return foodIngredientService.deleteFoodIngredient(foodIngredientID);
+            return foodingredientService.deleteFoodIngredient(foodIngredientID);
         }
 
 

@@ -38,6 +38,6 @@ public class FoodDaoImpl implements  FoodDao{
 
     @Override
     public Food updateFood(Food food) {
-        return null;
+        return foodRepository.save(food);
     }
 }

@@ -21,7 +21,7 @@ public class IngredientController {
     IngredientService ingredientService;
 
 
-    @RequestMapping(value = "getingredient",method = RequestMethod.GET)
+    @RequestMapping(value = "ingredient",method = RequestMethod.GET)
     public List<Ingredient> list(){
         return ingredientService.getIngredients();
     }
@@ -44,7 +44,7 @@ public class IngredientController {
     }
 
     @RequestMapping(value = "ingredient/{ingredientID}",method = RequestMethod.DELETE)
-    public  Ingredient deleteIngredient(@PathVariable("ingredientID") Long ingredientID){
+    public  Ingredient edit(@PathVariable("ingredientID") Long ingredientID){
         return ingredientService.deleteIngredient(ingredientID);
     }
 

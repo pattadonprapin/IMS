@@ -9,7 +9,9 @@ var labApp = angular.module('labApp', [
     'pascalprecht.translate',
     'shoppingCartControllers',
     'flow',
-    'securityControllers'
+    'securityControllers',
+    'ingredientMainController',
+    'foodMainController'
 ])
 labApp.config(['$routeProvider',
   function($routeProvider) {
@@ -29,6 +31,30 @@ labApp.config(['$routeProvider',
       when('/shoppingCart/:id',{
           templateUrl: 'template/shoppingCart.html',
           controller: 'showShoppingCartController'
+      }).
+      when('/addIngredient/',{
+          templateUrl: 'template/editIngredient.html',
+          controller: 'addIngredientController'
+      }).
+      when('/listIngredient',{
+          templateUrl: 'template/ingredientList.html',
+          controller: 'listIngredientController'
+      }).
+      when('/editIngredient/:ingredientID',{
+          templateUrl: 'template/editIngredient.html',
+          controller: 'editIngredientController'
+      }).
+      when('/addFood/',{
+          templateUrl: 'template/editFood.html',
+          controller: 'addFoodController'
+      }).
+      when('/listFood',{
+          templateUrl: 'template/foodList.html',
+          controller: 'listIngredientController'
+      }).
+      when('/editFood/:foodID',{
+          templateUrl: 'template/editFood.html',
+          controller: 'editFoodController'
       }).
        otherwise({redirectTo: '/listProduct'});
 }]);

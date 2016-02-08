@@ -1,6 +1,7 @@
 package camt.se331.shoppingcart.service;
 
 import camt.se331.shoppingcart.entity.Food;
+import camt.se331.shoppingcart.entity.Image;
 import camt.se331.shoppingcart.entity.Ingredient;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface FoodService {
     Food addFood(Food food);
     Food deleteFood(Long foodID);
     Food updateFood(Food food);
+
+    
 }

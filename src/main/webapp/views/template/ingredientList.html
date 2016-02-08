@@ -1,0 +1,74 @@
+
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success adding a new ingredient
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="editSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success edit the ingredient
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="deleteSucess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success delete the ingredient
+</div>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Ingredients</div>
+    <div class="panel-body">
+        <div class="col-lg-4" >
+        </div>
+        <div class="col-lg-6" >
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="searchProduct(name)">Search</button>
+                </span>
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+
+    <!-- Table -->
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th >Ingredient name </th>
+            <th >Ingredient Type</th>
+            <th  >Ingredient Amount</th>
+            <th  >purchase Date </th>
+            <th  >expired Date</th>
+            <th >edit</th>
+            <th >delete</th>
+
+        </tr>
+        <tr ng-repeat="ingredient in ingredients">
+            <td>{{$index+1}}</td>
+            <td>{{ingredient.ingredientName}}</td>
+            <td>{{ingredient.ingredientType}}</td>
+            <td >{{ingredient.ingredientAmount | number}}</td>
+            <td>{{ingredient.purchaseDate | date}}</td>
+            <td>{{ingredient.expiredDate | date}}</td>
+            <!--<td >-->
+                <!--&lt;!&ndash;<div ng-repeat="image in product.images" class="text-center" >&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">&ndash;&gt;-->
+                <!--</div>-->
+            <!--</td>-->
+            <td class="text-center"><a ng-href="#/editIngredient/{{ingredient.ingredientID}}"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td class="text-center"><a ng-href="#/listIngredient"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="deleteIngredient(ingredient.ingredientID)"></span></a></td>
+        </tr>
+        <!--<tr>-->
+            <!--<th></th>-->
+            <!--<th><strong translate>listProduct.total</strong> </th>-->
+            <!--<th></th>-->
+            <!--<th class="text-right">{{totalNetPrice | number}}</th>-->
+            <!--<th></th>-->
+            <!--<th></th>-->
+            <!--<th></th>-->
+
+        <!--</tr>-->
+    </table>
+</div>

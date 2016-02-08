@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -34,6 +37,16 @@
     <script src="js/shoppingCartController.js"></script>
     <script src="js/shoppingCartService.js"></script>
     <script src="js/securityController.js"></script>
+    <script src="js/ingredientController.js"></script>
+    <script src="js/ingredientService.js"></script>
+    <script src="js/foodController.js"></script>
+    <script src="js/foodService.js"></script>
+
+
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
+
+
+
 </head>
 <body>
 <div class="page-header">

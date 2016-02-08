@@ -3,10 +3,22 @@
     <ul class="nav nav-list">
         <li class="nav-header">Lab SE31 Menu bar</li>
     	<li ng-class="{true: 'active'}[menuActive('/addProduct')]">
-        	<a href="#/addProduct">Ingredient</a>
+        	<a href="#/addProduct">Product</a>
     	</li>
     	<li ng-class="{true: 'active'}[menuActive('/listProduct')]">
         	<a href="#/listProduct">All products</a>
     	</li>
+        <li ng-class="{true: 'active'}[menuActive('/addIngredient')]">
+            <a href="#/addIngredient">Ingredient</a>
+        </li>
+        <li ng-class="{true: 'active'}[menuActive('/listIngredient')]">
+            <a href="#/listIngredient">All ingredients</a>
+        </li>
+        <li ng-class="{true: 'active'}[menuActive('/addFood')]">
+            <a href="#/addFood">Food</a>
+        </li>
+        <li ng-class="{true: 'active'}[menuActive('/listFood')]">
+            <a href="#/listFood">All Food</a>
+        </li>
     </ul>
 </div><!--/.well -->

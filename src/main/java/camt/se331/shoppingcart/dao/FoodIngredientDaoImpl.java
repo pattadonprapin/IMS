@@ -3,12 +3,14 @@ package camt.se331.shoppingcart.dao;
 import camt.se331.shoppingcart.entity.FoodIngredient;
 import camt.se331.shoppingcart.repository.FoodIngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by TEN10 on 2/3/2016.
  */
+@Repository
 public class FoodIngredientDaoImpl implements  FoodIngredientDao {
 
     @Autowired
