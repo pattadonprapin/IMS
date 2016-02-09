@@ -9,6 +9,9 @@ foodService.factory('foodService',function($resource){
 
 })
 
+
+
+
 //productService.service('totalCalService',function() {
 //    this.getTotalNetPrice = function (products) {
 //        var output = 0.0;

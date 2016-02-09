@@ -29,6 +29,7 @@ public class ProductController {
     }
     @RequestMapping(value = "product",method = RequestMethod.POST)
     public @ResponseBody Product add(@RequestBody Product product, BindingResult bindingResult){
+
         return productService.addProduct(product);
     }
 

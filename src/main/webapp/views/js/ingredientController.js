@@ -24,6 +24,8 @@ ingredientMainController.controller('addIngredientController', ['$scope', '$http
             });
         };
 
+        $scope.options = [{ name: "fresh food", id: 1 }, { name: "dry food", id: 2 }];
+        $scope.selectedOption = $scope.options[1];
 
         $scope.start = new Date('11/20/13');
         $scope.end = new Date();
@@ -94,9 +96,15 @@ ingredientMainController.controller('editIngredientController', ['$scope', '$htt
     function ($scope, $http, $routeParams, $location, $rootScope,ingredientService) {
         $scope.addPerson = false;
         $scope.editPerson = true;
+
+        $scope.options = [{ name: "fresh food", id: 1 }, { name: "dry food", id: 2 }];
+        $scope.selectedOption = $scope.options[1];
+
+
         var ingredientID = $routeParams.ingredientID;
         $http.get("/ingredient/" + ingredientID).success(function (data) {
             $scope.ingredient = data;
+
         });
 
         $scope.editIngredient = function () {
@@ -106,4 +114,6 @@ ingredientMainController.controller('editIngredientController', ['$scope', '$htt
                 $location.path("listIngredient");
             });
         }
+
+
     }]);

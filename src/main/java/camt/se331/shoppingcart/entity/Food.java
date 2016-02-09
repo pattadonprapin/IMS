@@ -5,6 +5,7 @@ package camt.se331.shoppingcart.entity;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -20,15 +21,15 @@ public class Food {
     @GeneratedValue
     Long foodID;
     String foodName;
-    Date foodCreatedate;
-    Date foodUpdateDate;
+    LocalDate foodCreatedate;
+    LocalDate foodUpdateDate;
 
 
 
 
 
 
-    public Food(Long foodID, String foodName, Date foodCreatedate, Date foodUpdateDate) {
+    public Food(Long foodID, String foodName, LocalDate foodCreatedate, LocalDate foodUpdateDate) {
         this.foodID = foodID;
         this.foodName = foodName;
         this.foodCreatedate = foodCreatedate;
@@ -51,19 +52,19 @@ public class Food {
         this.foodName = foodName;
     }
 
-    public Date getFoodCreatedate() {
+    public LocalDate getFoodCreatedate() {
         return foodCreatedate;
     }
 
-    public void setFoodCreatedate(Date foodCreatedate) {
+    public void setFoodCreatedate(LocalDate foodCreatedate) {
         this.foodCreatedate = foodCreatedate;
     }
 
-    public Date getFoodUpdateDate() {
+    public LocalDate getFoodUpdateDate() {
         return foodUpdateDate;
     }
 
-    public void setFoodUpdateDate(Date foodUpdateDate) {
+    public void setFoodUpdateDate(LocalDate foodUpdateDate) {
         this.foodUpdateDate = foodUpdateDate;
     }
 

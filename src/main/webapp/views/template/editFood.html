@@ -1,65 +1,79 @@
 <div class="row-fluid">
     <div class="row" ng-show="addPerson">
-        <h1>Add new product</h1>
+        <h1>Add new Food</h1>
     </div>
     <div class="row" ng-show="editPerson">
-        <h1>Edit Product</h1>
+        <h1>Edit Food</h1>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form name="editform" novalidate flow-init>
-            <div class="form-group">
-                <!-- Sidebar content-->
-                <label for="productname">Name :</label>
-                <input ng-model="product.name" class="form-control" id="productname" name="productname" placeholder="name" required/>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <!-- Sidebar content-->
+                        <label for="foodName">Food Name :</label>
+                        <input ng-model="food.foodName" class="form-control" id="foodName" name="foodName"
+                               placeholder="foodName" required/>
 
-                <div class="alert alert-danger" role="alert" ng-show="editform.productname.$error.required">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Product name is Required!
+                        <div class="alert alert-danger" role="alert" ng-show="editform.foodName.$error.required">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span>
+                            Food name is Required!
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="productdescription">Description :</label>
-                <input ng-model="product.description" class="form-control" id="productdescription"
-                       placeholder="description" name="productdescription" required/>
+            <!--<div class="form-group">-->
+            <!--<label for="ingredientName">ingredient:</label>-->
+            <!--<select ng-model="food.ingredient"  class="form-control" id="ingredientName" name="ingredientName"required >-->
+            <!--<option ng-repeat="operator in ingredients" value="{{operator.ingredientName}}" >{{operator.ingredientName}}</option>-->
+            <!--</select>-->
+            <!--<div class="alert alert-danger" role="alert" ng-show="editform.ingredientName.$error.required">-->
+            <!--<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>-->
+            <!--<span class="sr-only">Error:</span>-->
+            <!--IngredientName is Required!-->
+            <!--</div>-->
+            <!--</div>-->
 
-                <div class="alert alert-danger" role="alert" ng-show="editform.productdescription.$error.required">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Description is Required!
+
+            <div class="row">
+
+
+                <div class="form-group">
+                    <label for="ingredientName">ingredient:</label>
+                    <fieldset data-ng-repeat="choice in choices">
+                        <div class="col-md-2">
+                            <select ng-model="food.ingredient" class="form-control" id="ingredientName"
+                                    name="ingredientName" required>
+                                <option ng-repeat="operator in ingredients" value="{{operator.ingredientName}}">
+                                    {{operator.ingredientName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" ng-model="choice.name" name=""
+                                   placeholder="Ingredient Amount">
+                        </div>
+                        <button class="btn btn-default" ng-show="$last" ng-click="removeChoice()">-</button>
+                    </fieldset>
+
+                    <br>
+                    <button class="btn btn-default" ng-click="addNewChoice()">Add fields</button>
+                    <!--<div id="choicesDisplay">-->
+                    <!--{{ choices }}-->
+                    <!--</div>-->
+
+                    <div class="alert alert-danger" role="alert" ng-show="editform.ingredientName.$error.required">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        IngredientName 
+                    </div>
                 </div>
-
             </div>
-            <div class="form-group">
-                <label for="productprice">price :</label>
-                <input ng-model="product.totalPrice" name="productprice" class="form-control" id="productprice" placeholder="price" type="number" required/>
-
-                <div class="alert alert-danger" role="alert" ng-show="editform.productprice.$error.required">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Price is Required!
-                </div>
-                <div class="alert alert-danger" role="alert" ng-show="editform.productprice.$error.number">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    Enter the number!!
-                </div>
-                <div >
-                    <input type="file" flow-btn />
-                    <table>
-                        <tr ng-repeat="file in $flow.files">
-                            <td>{{$index+1}}</td>
-                            <td>{{file.name}}</td>
-                            <td><img flow-img="$flow.files[{{$index}}]" /></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
 
 
-
-            <button type="submit" class="btn btn-default" ng-click="addProduct($flow)" ng-show="addPerson">Add</button>
-            <button type="submit" class="btn btn-default" ng-click="editProduct()" ng-show="editPerson">Edit</button>
+            <button type="submit" class="btn btn-default" ng-click="addFood($flow)" ng-show="addPerson">Add</button>
+            <button type="submit" class="btn btn-default" ng-click="editFood()" ng-show="editPerson">Edit</button>
         </form>
     </div>
 </div>

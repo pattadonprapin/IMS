@@ -5,10 +5,38 @@ var foodMainController = angular.module('foodMainController', ['foodServices']);
 foodMainController.controller('addFoodController', ['$scope', '$http', '$location', '$rootScope','foodService',
     function ($scope, $http, $location, $rootScope,foodService) {
         $scope.food = {};
+        $scope.ingredients = {};
+
         $scope.addPerson = true;
         $scope.editPerson = false;
-        $scope.addFood = function () {
 
+
+        $http.get("/ingredient/").success(function (data) {
+            $scope.ingredients = data;
+        });
+
+
+
+        $scope.choices = [{id: 'choice1'}];
+
+        $scope.addNewChoice = function() {
+            var newItemNo = $scope.choices.length+1;
+            $scope.choices.push({'id':'choice'+newItemNo});
+        };
+
+        $scope.removeChoice = function() {
+            var lastItem = $scope.choices.length-1;
+            $scope.choices.splice(lastItem);
+        };
+
+
+
+
+
+
+
+
+        $scope.addFood = function () {
 
             foodService.save($scope.food,function(data){
                 // after adding the object, add a new picture
@@ -24,6 +52,14 @@ foodMainController.controller('addFoodController', ['$scope', '$http', '$locatio
                 $location.path("listFood");
                 $scope.$apply();
             });
+
+
+
+
+
+
+
+
         };
 
 

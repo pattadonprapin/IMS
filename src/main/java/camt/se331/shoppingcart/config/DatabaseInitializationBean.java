@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -96,16 +97,16 @@ public class DatabaseInitializationBean implements InitializingBean {
         user.setRoles(roles2);
 
 
-        Ingredient[] testingredient ={
-                new Ingredient(1l,"cheese","dry food",200.00,new Date(02/02/2016),new Date(02/02/2016)),
-                new Ingredient(2l,"cheese","dry food",250.00,new Date(02/02/2016),new Date(02/02/2016)),
-        };
-        ingredientRepository.save(Arrays.asList(testingredient));
+//        Ingredient[] testingredient ={
+//                new Ingredient(1l,"cheese","dry food",200.00,new Date(02/02/2016),new Date(02/02/2016)),
+//                new Ingredient(2l,"cheese","dry food",250.00,new Date(02/02/2016),new Date(02/02/2016)),
+//        };
+//        ingredientRepository.save(Arrays.asList(testingredient));
 
-        Food[] testfood = {
-                new Food(1l,"spaghetti",new Date(02/02/2016),new Date(02/02/2016)),
-        };
-        foodRepository.save(Arrays.asList(testfood));
+//        Food[] testfood = {
+//                new Food(1l,"spaghetti",new LocalDate("2015-02-02"),new LocalDate("2015-02-02")),
+//        };
+//        foodRepository.save(Arrays.asList(testfood));
         FoodIngredient test=new FoodIngredient(1l,12.0,new Date(02/02/2016),new Date(02/02/2016),foodRepository.findAll(),ingredientRepository.findAll());
         foodIngredientRepositoryRepository.save(test);
     }

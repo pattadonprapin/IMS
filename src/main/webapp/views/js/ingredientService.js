@@ -14,4 +14,3 @@ ingredientService.factory('ingredientService',function($resource){
 })
 
 
-

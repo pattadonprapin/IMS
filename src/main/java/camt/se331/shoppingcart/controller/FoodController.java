@@ -33,7 +33,8 @@ public class FoodController {
 
     @RequestMapping(value = "food",method = RequestMethod.POST)
     public @ResponseBody
-    Food addFood(@RequestBody Food food, BindingResult bindingResult){
+    Food addFood(@RequestBody Food food, BindingResult bindingResult  ){
+
         return foodService.addFood(food);
     }
 
