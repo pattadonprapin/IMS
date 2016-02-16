@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                     <label for="ingredientName">ingredient:</label>
-                    <fieldset data-ng-repeat="choice in choices">
+                    <fieldset data-ng-repeat="foodingredient in foodingredients">
                         <div class="col-md-2">
                             <select ng-model="food.ingredient" class="form-control" id="ingredientName"
                                     name="ingredientName" required>
@@ -51,7 +51,7 @@
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" ng-model="choice.name" name=""
+                            <input type="text" class="form-control" ng-model="foodingredient.name" name=""
                                    placeholder="Ingredient Amount">
                         </div>
                         <button class="btn btn-default" ng-show="$last" ng-click="removeChoice()">-</button>
@@ -66,9 +66,19 @@
                     <div class="alert alert-danger" role="alert" ng-show="editform.ingredientName.$error.required">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <span class="sr-only">Error:</span>
-                        IngredientName 
+                        IngredientName
                     </div>
                 </div>
+
+                <input type="file" flow-btn />
+                <table>
+                    <tr ng-repeat="file in $flow.files">
+                        <td>{{$index+1}}</td>
+                        <td>{{file.name}}</td>
+                        <td><img flow-img="$flow.files[{{$index}}]" /></td>
+                    </tr>
+                </table>
+
             </div>
 
 

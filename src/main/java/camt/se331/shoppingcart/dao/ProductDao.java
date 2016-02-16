@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by Dto on 2/7/2015.
  */
+
 public interface ProductDao {
     List<Product> getProducts();
     List<Product> getProductsByName(String name);

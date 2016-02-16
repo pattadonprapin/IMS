@@ -17,5 +17,6 @@ public interface FoodService {
     Food deleteFood(Long foodID);
     Food updateFood(Food food);
 
+    Food addImage(Food food, Image image);
 
 }

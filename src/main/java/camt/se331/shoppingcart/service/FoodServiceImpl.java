@@ -3,9 +3,11 @@ package camt.se331.shoppingcart.service;
 import camt.se331.shoppingcart.dao.FoodDao;
 import camt.se331.shoppingcart.dao.IngredientDao;
 import camt.se331.shoppingcart.entity.Food;
+import camt.se331.shoppingcart.entity.Image;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -41,5 +43,13 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public Food updateFood(Food food) {
         return foodDao.updateFood(food);
+    }
+
+    @Override
+    @Transactional
+    public Food addImage(Food food, Image image) {
+        food.getImages().add(image);
+        foodDao.updateFood(food);
+        return food;
     }
 }

@@ -1,6 +1,7 @@
 package camt.se331.shoppingcart.dao;
 
 import camt.se331.shoppingcart.entity.Food;
+import camt.se331.shoppingcart.entity.Image;
 import camt.se331.shoppingcart.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,4 +41,6 @@ public class FoodDaoImpl implements  FoodDao{
     public Food updateFood(Food food) {
         return foodRepository.save(food);
     }
+
+
 }

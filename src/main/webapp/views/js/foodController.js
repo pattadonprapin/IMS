@@ -2,8 +2,8 @@
 
 var foodMainController = angular.module('foodMainController', ['foodServices']);
 
-foodMainController.controller('addFoodController', ['$scope', '$http', '$location', '$rootScope','foodService',
-    function ($scope, $http, $location, $rootScope,foodService) {
+foodMainController.controller('addFoodController', ['$scope', '$http', '$location', '$rootScope', 'foodService',
+    function ($scope, $http, $location, $rootScope, foodService) {
         $scope.food = {};
         $scope.ingredients = {};
 
@@ -16,37 +16,30 @@ foodMainController.controller('addFoodController', ['$scope', '$http', '$locatio
         });
 
 
+        $scope.foodingredients = [$scope.ingredients];
 
-        $scope.choices = [{id: 'choice1'}];
-
-        $scope.addNewChoice = function() {
-            var newItemNo = $scope.choices.length+1;
-            $scope.choices.push({'id':'choice'+newItemNo});
+        $scope.addNewChoice = function () {
+            var newItemNo = $scope.foodingredients.length + 1;
+            $scope.foodingredients[newItemNo].push( $scope.ingredients);
         };
 
-        $scope.removeChoice = function() {
-            var lastItem = $scope.choices.length-1;
-            $scope.choices.splice(lastItem);
+        $scope.removeChoice = function () {
+            var lastItem = $scope.foodingredients.length - 1;
+            $scope.foodingredients.splice(lastItem);
         };
 
 
+        $scope.addFood = function (flowFiles) {
 
-
-
-
-
-
-        $scope.addFood = function () {
-
-            foodService.save($scope.food,function(data){
+            foodService.save($scope.food, function (data) {
                 // after adding the object, add a new picture
                 // get the product id which the image will be addded
-                //var productid = data.id;
+                var foodID = data.foodID;
                 //// set location
-                //flowFiles.opts.target = '/productImage/add';
-                //flowFiles.opts.testChunks = false;
-                //flowFiles.opts.query ={productid:productid};
-                //flowFiles.upload();
+                flowFiles.opts.target = '/foodImage/add';
+                flowFiles.opts.testChunks = false;
+                flowFiles.opts.query ={foodID:foodID};
+                flowFiles.upload();
 
                 $rootScope.addSuccess = true;
                 $location.path("listFood");
@@ -54,21 +47,18 @@ foodMainController.controller('addFoodController', ['$scope', '$http', '$locatio
             });
 
 
-
-
-
-
-
-
         };
+
+
+
 
 
     }]);
 
-foodMainController.controller('listFoodController', ['$scope', '$http', '$rootScope','foodService','$route',
-    function ($scope, $http, $rootScope,foodService,$route) {
+foodMainController.controller('listFoodController', ['$scope', '$http', '$rootScope', 'foodService', '$route',
+    function ($scope, $http, $rootScope, foodService, $route) {
         //$http.get("/product/").success(function (data) {
-        var data = foodService.query(function(){
+        var data = foodService.query(function () {
             // $scope.totalNetPrice= totalCalService.getTotalNetPrice(data);
             $scope.foods = data;
         });
@@ -83,7 +73,7 @@ foodMainController.controller('listFoodController', ['$scope', '$http', '$rootSc
         $scope.deleteFood = function (foodID) {
             var answer = confirm("Do you want to delete the product?");
             if (answer) {
-                productService.delete({foodID:foodID},function(){
+                productService.delete({foodID: foodID}, function () {
                     $rootScope.deleteSuccess = true;
                     $route.reload();
                 })
@@ -98,8 +88,8 @@ foodMainController.controller('listFoodController', ['$scope', '$http', '$rootSc
 
     }]);
 
-foodMainController.controller('editFoodController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','foodService',
-    function ($scope, $http, $routeParams, $location, $rootScope,foodService) {
+foodMainController.controller('editFoodController', ['$scope', '$http', '$routeParams', '$location', '$rootScope', 'foodService',
+    function ($scope, $http, $routeParams, $location, $rootScope, foodService) {
         $scope.addPerson = false;
         $scope.editPerson = true;
         var foodID = $routeParams.foodID;
@@ -109,7 +99,7 @@ foodMainController.controller('editFoodController', ['$scope', '$http', '$routeP
 
         $scope.editFood = function () {
             //$http.put("/product", $scope.product).then(function () {
-            foodService.update({id:$scope.product.id},$scope.product,function(){
+            foodService.update({id: $scope.product.id}, $scope.product, function () {
                 $rootScope.editSuccess = true;
                 $location.path("listFood");
             });

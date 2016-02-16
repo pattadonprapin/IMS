@@ -1,6 +1,7 @@
 package camt.se331.shoppingcart.dao;
 
 import camt.se331.shoppingcart.entity.Food;
+import camt.se331.shoppingcart.entity.Image;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface FoodDao {
     Food addFood(Food food);
     Food deleteFood(Food food);
     Food updateFood(Food food);
+
+
 }
